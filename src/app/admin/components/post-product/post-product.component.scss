@@ -1,0 +1,82 @@
+.container{
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    margin-top: 90px;
+
+    h2{
+        text-align: center;
+        margin-bottom: 20 px;
+        color: #3f51b5;
+    }
+}
+
+mat-card{
+    max-width: 400px;
+    width: 100%;
+    padding: 20px;
+
+    @media screen and (max-width: 500px) {
+        max-width: 90px;
+    }
+}
+
+mat-card-title{
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    
+    mat-form-field {
+
+        margin-bottom: 20px;
+        
+        .mat-form-filed-wrapper {
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+
+    }
+
+    .file-upload-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding:  12px 24 px;
+        }
+    }
+}
+
+mat-card-field{
+    width: 100%;
+    margin-bottom: 20px;    
+ } 
+
+button{
+    width: 100%;
+}
+
+@media (max-width: 600px){
+   .container{
+    padding: 10px;
+    form{
+        mat-form-filed {
+            margin-bottom: 10px;
+        }
+    }
+   }
+}
+
+.error-snackBar{
+    background-color: red !important;
+}

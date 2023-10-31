@@ -1,0 +1,83 @@
+<div *ngIf="isAdminLoggedIn ">
+<mat-toolbar color="primary">
+    <button [routerLink]="['/']" mat-icon-button><mat-icon>home </mat-icon> </button> 
+    <span> E-commerce</span>
+    <span class="example-spacer "></span>
+    <button mat-button [mat-menu-trigger-for]="lv1master" routerLinkActive="active">
+         Contact
+    </button>
+    <mat-menu #lv1master="matMenu">
+        <button  [mat-menu-trigger-for]="section1" mat-menu-item> Section1</button>
+        <button  mat-menu-item> Section2</button>
+    </mat-menu>
+
+    <mat-menu #section1="matMenu">
+        <button  mat-menu-item> One</button>
+        <button  mat-menu-item> Two</button>
+    </mat-menu>
+    
+    <button mat-button [routerLink]="['/admin/dashboard']" routerLinkActive="active">Dashboard</button>
+    <button mat-button [routerLink]="['/admin/analytics']" routerLinkActive="active">Analytics</button>
+    <button mat-button [routerLink]="['/admin/category']" routerLinkActive="active">Category</button>
+    <button mat-button [routerLink]="['/admin/product']" routerLinkActive="active">Product</button>
+    <button mat-button [routerLink]="['/admin/orders']" routerLinkActive="active">Orders</button>
+    <button mat-button [routerLink]="['/admin/post-coupon']" routerLinkActive="active">Post Coupon</button>
+    <button mat-button [routerLink]="['/admin/coupons']" routerLinkActive="active">Coupons</button>
+    <button mat-button (click)="logout()" routerLinkActive="active">LOGOUT</button>
+
+</mat-toolbar>
+</div>
+
+<div *ngIf="isCustomerLoggedIn">
+    <mat-toolbar color="primary">
+        <button [routerLink]="['/']" mat-icon-button><mat-icon>home </mat-icon> </button> 
+        <span> E-commerce</span>
+        <span class="example-spacer "></span>
+        <button mat-button [mat-menu-trigger-for]="lv1master" routerLinkActive="active">
+             Contact
+        </button>
+        <mat-menu #lv1master="matMenu">
+            <button  [mat-menu-trigger-for]="section1" mat-menu-item> Section1</button>
+            <button  mat-menu-item> Section2</button>
+        </mat-menu>
+    
+        <mat-menu #section1="matMenu">
+            <button  mat-menu-item> One</button>
+            <button  mat-menu-item> Two</button>
+        </mat-menu>
+        
+        <button mat-button [routerLink]="['/customer/dashboard']" routerLinkActive="active">Dashboard</button>
+        <button mat-button [routerLink]="['/customer/cart']" routerLinkActive="active">Cart</button>
+        <button mat-button [routerLink]="['/customer/my_orders']" routerLinkActive="active">Orders</button>
+        <button mat-button [routerLink]="['/customer/wishlist']" routerLinkActive="active">Wishlist</button>
+        <button mat-button [routerLink]="['/customer/profile']" routerLinkActive="active">Profile</button>
+        <button mat-button (click)="logout()" routerLinkActive="active">LOGOUT</button>
+    </mat-toolbar>
+</div>
+
+<div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn ">
+    <mat-toolbar color="primary">
+        <button [routerLink]="['/']" mat-icon-button><mat-icon>home </mat-icon> </button> 
+        <span> E-commerce</span>
+        <span class="example-spacer "></span>
+        <button mat-button [mat-menu-trigger-for]="lv1master" routerLinkActive="active">
+             Contact
+        </button>
+        <mat-menu #lv1master="matMenu">
+            <button  [mat-menu-trigger-for]="section1" mat-menu-item> Section1</button>
+            <button  mat-menu-item> Section2</button>
+        </mat-menu>
+    
+        <mat-menu #section1="matMenu">
+            <button  mat-menu-item> One</button>
+            <button  mat-menu-item> Two</button>
+        </mat-menu>
+        
+        <button mat-button [routerLink]="['/login']" routerLinkActive="active">
+            Login
+        </button>
+        <button mat-button [routerLink]="['/signup']" routerLinkActive="active">
+            Register
+        </button>
+    </mat-toolbar>
+</div>

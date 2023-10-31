@@ -1,0 +1,37 @@
+<div class="container">
+    <mat-card>
+        <mat-card-title>LOGIN</mat-card-title>
+        <mat-card-content>
+            <form [formGroup]="loginForm" >
+                <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input  type="email" matInput placeholder="Email" formControlName="email" required>
+                    <mat-error *ngIf="loginForm.get('email').invalid && loginForm.get('email').touched"> 
+                        please enter the Email
+                    </mat-error>
+                </mat-form-field>
+                <br/>
+                <mat-form-field appearance="outline">
+                    <mat-label>Password</mat-label>
+                    <input type="password" matInput placeholder="Password" formControlName="password" required>
+                    <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
+                        <mat-icon>
+                            {{ hidePassword ? 'visibility_off' : 'visibility'}}
+                        </mat-icon>
+                    </button>
+                    <mat-error *ngIf="loginForm.get('password').invalid && loginForm.get('password').touched">
+                        Please Enter Password
+                    </mat-error>
+                </mat-form-field>
+                <br />
+                <button type="submit" mat-raised-button color="primary" [disabled]="!loginForm.valid" (click)="onSubmit()"> Login</button>
+            </form>    
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button mat-button color="accent" routerLink="/signup" cdkFocusInitial>Don't have an account? Sign Up</button>
+        </mat-card-actions>
+    </mat-card>   
+</div>
+
+
+

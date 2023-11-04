@@ -39,6 +39,34 @@ export class AdminService {
     });
   }
 
+  getAllProductsByName(name:any): Observable<any>{
+    return this.http.get(Basic_URL+ `api/admin/search/${name}`,{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
+  deleteProduct(productId:any): Observable<any>{
+    return this.http.delete(Basic_URL + `api/admin/product/${productId}`,{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
+
+   /////////////////////////////////////////
+
+   addCoupon(couponDTO:any): Observable<any>{
+    return this.http.post(Basic_URL + "api/admin/coupons", couponDTO,{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
+  getAllCoupon(): Observable<any>{
+    return this.http.get(Basic_URL + "api/admin/coupons",{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
+
 
   /////////////////////////////////////////
 

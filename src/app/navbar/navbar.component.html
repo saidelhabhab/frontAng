@@ -28,7 +28,7 @@
 </mat-toolbar>
 </div>
 
-<div *ngIf="isCustomerLoggedIn">
+<div *ngIf="isCostumerLoggedIn">
     <mat-toolbar color="primary">
         <button [routerLink]="['/']" mat-icon-button><mat-icon>home </mat-icon> </button> 
         <span> E-commerce</span>
@@ -46,16 +46,16 @@
             <button  mat-menu-item> Two</button>
         </mat-menu>
         
-        <button mat-button [routerLink]="['/customer/dashboard']" routerLinkActive="active">Dashboard</button>
-        <button mat-button [routerLink]="['/customer/cart']" routerLinkActive="active">Cart</button>
-        <button mat-button [routerLink]="['/customer/my_orders']" routerLinkActive="active">Orders</button>
-        <button mat-button [routerLink]="['/customer/wishlist']" routerLinkActive="active">Wishlist</button>
-        <button mat-button [routerLink]="['/customer/profile']" routerLinkActive="active">Profile</button>
+        <button mat-button [routerLink]="['/costumer/dashboard']" routerLinkActive="active">Dashboard</button>
+        <button mat-button [routerLink]="['/costumer/cart']" routerLinkActive="active">Cart</button>
+        <button mat-button [routerLink]="['/costumer/my_orders']" routerLinkActive="active">Orders</button>
+        <button mat-button [routerLink]="['/costumer/wishlist']" routerLinkActive="active">Wishlist</button>
+        <button mat-button [routerLink]="['/costumer/profile']" routerLinkActive="active">Profile</button>
         <button mat-button (click)="logout()" routerLinkActive="active">LOGOUT</button>
     </mat-toolbar>
 </div>
 
-<div *ngIf="!isCustomerLoggedIn && !isAdminLoggedIn ">
+<div *ngIf="!isCostumerLoggedIn && !isAdminLoggedIn ">
     <mat-toolbar color="primary">
         <button [routerLink]="['/']" mat-icon-button><mat-icon>home </mat-icon> </button> 
         <span> E-commerce</span>

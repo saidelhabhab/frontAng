@@ -39,7 +39,7 @@ static getUserId():string{
     if (user == null){
     return "";
     }
-      return user.userId;
+      return user.customerId;
     
 }
 
@@ -66,7 +66,7 @@ static isAdminLoggedIn():boolean{
 }
 
 //////////////////////////////////////////////
-static isCustomerLoggedIn():boolean{
+static isCostumerLoggedIn():boolean{
   if(this.getToken === null){
     return false;
   }

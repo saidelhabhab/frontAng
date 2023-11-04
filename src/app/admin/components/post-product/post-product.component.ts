@@ -83,10 +83,11 @@ export class PostProductComponent implements OnInit {
         console.log("results : " +res)
         alert("Added Successfully");
 
-        if (res.id != null) {
-          this.dialogRef.close();
+        if (res.id !=null) {
+          
           this.router.navigateByUrl('/admin/dashboard');
           this.snackBar.open('Product added successfully','OK',{duration:3000})
+          this.dialogRef.close();
         }else{
             this.snackBar.open('Failed to add product','OK',{duration:3000})
         }

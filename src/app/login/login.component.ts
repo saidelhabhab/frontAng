@@ -56,12 +56,12 @@ export class LoginComponent implements OnInit{
           this.router.navigateByUrl('admin/dashboard');
           },2000)
       }
-      else if(UserStorageService.isCustomerLoggedIn()){
+      else if(UserStorageService.isCostumerLoggedIn()){
         
         console.log("Registered Successfully");
         this.openSnackBar("Registration successful","Close")
         setTimeout(()=>{
-          this.router.navigateByUrl('customer/dashboard');
+          this.router.navigateByUrl('costumer/dashboard');
           },2000)
       }
 

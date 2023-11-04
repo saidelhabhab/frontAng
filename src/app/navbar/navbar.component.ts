@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent  {
 
-  isCustomerLoggedIn : boolean = UserStorageService.isCustomerLoggedIn(); 
+  isCostumerLoggedIn : boolean = UserStorageService.isCostumerLoggedIn(); 
   isAdminLoggedIn : boolean = UserStorageService.isAdminLoggedIn();
 
   constructor(private router: Router){}
@@ -17,7 +17,7 @@ export class NavbarComponent  {
 
   ngOnInit(): void {
     this.router.events.subscribe(event=>{
-      this.isCustomerLoggedIn = UserStorageService.isCustomerLoggedIn();
+      this.isCostumerLoggedIn = UserStorageService.isCostumerLoggedIn();
       this.isAdminLoggedIn = UserStorageService.isAdminLoggedIn();
     })
   }

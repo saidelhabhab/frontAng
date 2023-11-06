@@ -66,6 +66,13 @@ export class AdminService {
     });
   }
 
+  /////////////////////////////////////////
+
+  getAllOrders(): Observable<any>{
+    return this.http.get(Basic_URL + "api/admin/placeOrders",{
+      headers:this.createAuthorizationHeader()
+    });
+  }
 
 
   /////////////////////////////////////////

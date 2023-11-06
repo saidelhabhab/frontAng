@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { CostumerService } from '../../services/costumer.service';
+import { CustomerService } from '../../services/customer.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
+import { PlaceOrderComponent } from '../place-order/place-order.component';
 
 @Component({
   selector: 'app-cart',
@@ -16,7 +17,7 @@ export class CartComponent  implements OnInit {
   couponForm! : FormGroup;
 
   constructor(
-    private costumerService:CostumerService,
+    private customerService:CustomerService,
     private fb:FormBuilder,
     private snackBar:MatSnackBar,
     public dialog: MatDialog
@@ -34,7 +35,7 @@ export class CartComponent  implements OnInit {
   applyCoupon(){
 
     //let data = {...this.couponForm.get(['code'])!.value}
-    this.costumerService.applyCoupon(this.couponForm.get(['code'])!.value).subscribe(res=>{
+    this.customerService.applyCoupon(this.couponForm.get(['code'])!.value).subscribe(res=>{
       console.log("data" +res)
       this.openSnackBar('Coupon applied Successfully','OK');
       this.getCart();
@@ -52,7 +53,7 @@ export class CartComponent  implements OnInit {
 
   getCart(){
     this.cartItems = [];
-    this.costumerService.getCartByCustomerId().subscribe(res=>{
+    this.customerService.getCartByCustomerId().subscribe(res=>{
       this.order = res;
 
       res.cartItems.forEach(element =>{
@@ -64,7 +65,7 @@ export class CartComponent  implements OnInit {
 
   increaseProductQuantity(productId:any){
 
-    this.costumerService.increaseProductQuantity(productId).subscribe(res=>{
+    this.customerService.increaseProductQuantity(productId).subscribe(res=>{
 
       this.openSnackBar('Product Quantity Increase (+) ','OK');
       this.getCart();
@@ -74,7 +75,7 @@ export class CartComponent  implements OnInit {
 
   decreaseProductQuantity(productId:any){
 
-    this.costumerService.decreaseProductQuantity(productId).subscribe(res=>{
+    this.customerService.decreaseProductQuantity(productId).subscribe(res=>{
 
       this.openSnackBar('Product Quantity deduction (-) ','OK');
       this.getCart();
@@ -82,6 +83,9 @@ export class CartComponent  implements OnInit {
 
   }
 
+  placeOrder(){
+    this.dialog.open(PlaceOrderComponent);
+  }
 
 
   openSnackBar(message: string, action: string) {

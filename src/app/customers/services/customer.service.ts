@@ -9,7 +9,7 @@ const Basic_URL="http://localhost:8000/"
 @Injectable({
   providedIn: 'root'
 })
-export class CostumerService {
+export class CustomerService {
   
   constructor(private http: HttpClient) { }
 
@@ -88,6 +88,18 @@ export class CostumerService {
     }
 
      return this.http.post(Basic_URL+ `api/customer/deduction`,cartDto , {
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
+  
+  /////////////////////////////////////////
+
+  playerOrder(orderDto:any): Observable<any>{
+    
+     orderDto.customerId = UserStorageService.getUserId();
+
+    return this.http.post(Basic_URL+ `api/customer/placeOrder`, orderDto, {
       headers:this.createAuthorizationHeader()
     });
   }

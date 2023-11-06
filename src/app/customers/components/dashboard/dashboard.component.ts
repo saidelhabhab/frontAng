@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AdminService } from 'src/app/services/admin.service';
-import { CostumerService } from '../../services/costumer.service';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,7 +13,7 @@ export class DashboardComponent implements OnInit {
   searchProductForm:FormGroup;
 
   constructor(
-    private costumerService:CostumerService,
+    private customerService:CustomerService,
     private fb:FormBuilder,
     private snackBar:MatSnackBar,
     ) { }
@@ -30,7 +29,7 @@ export class DashboardComponent implements OnInit {
   getAllProducts(){
     this.products = [];
 
-    this.costumerService.getAllProducts().subscribe(res=>{
+    this.customerService.getAllProducts().subscribe(res=>{
       res.forEach(element=>{
         element.processedImg ='data:image/jpeg;base64,'+element.byteImg;
         this.products.push(element);
@@ -41,7 +40,7 @@ export class DashboardComponent implements OnInit {
   submitForm (){
     this.products = [];
     const title = this.searchProductForm.get('title')!.value;
-    this.costumerService.getAllProductsByName(title).subscribe(res=>{
+    this.customerService.getAllProductsByName(title).subscribe(res=>{
       res.forEach(element=>{
         element.processedImg ='data:image/jpeg;base64,'+element.byteImg;
         this.products.push(element);
@@ -52,7 +51,7 @@ export class DashboardComponent implements OnInit {
 
   addToCart(id:any){
     //console.log("id "+ id)
-    this.costumerService.addToCart(id).subscribe(res=>{
+    this.customerService.addToCart(id).subscribe(res=>{
       
       this.snackBar.open("Product added to cart Successfully", "Close", { duration: 4000 });
       console.log("res "+ res)

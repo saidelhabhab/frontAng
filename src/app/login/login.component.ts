@@ -61,7 +61,7 @@ export class LoginComponent implements OnInit{
         console.log("Registered Successfully");
         this.openSnackBar("Registration successful","Close")
         setTimeout(()=>{
-          this.router.navigateByUrl('costumer/dashboard');
+          this.router.navigateByUrl('customer/dashboard');
           },2000)
       }
 

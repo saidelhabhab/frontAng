@@ -6,16 +6,19 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { DemoAngularMateriel } from '../DemoAngularMateriel';
-import { CostumersComponent } from './costumers.component';
-import { CostumersRoutingModule } from './costumers-routing.module';
+
+import { CostumersRoutingModule } from './customers-routing.module';
 import { CartComponent } from './components/cart/cart.component';
+import { PlaceOrderComponent } from './components/place-order/place-order.component';
+import { CustomersComponent } from './customers.component';
 
 
 @NgModule({
   declarations: [
-    CostumersComponent,
+    CustomersComponent,
     DashboardComponent,
-    CartComponent
+    CartComponent,
+    PlaceOrderComponent
   ],
   imports: [
     CommonModule,

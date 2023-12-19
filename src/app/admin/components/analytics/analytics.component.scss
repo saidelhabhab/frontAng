@@ -1,0 +1,57 @@
+.analytics-container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+}
+
+.analytics-card{
+    width: 40%;
+    border-radius: 10px;
+   transition:  transform 0.3s ease-in-out ;
+}
+
+.analytics-card:hover{
+    transform: translateY(-5px);
+    box-shadow: 0 6px 10px rgba($color: #6d6d6d, $alpha: 1.0);
+}
+
+.metric-avatar{
+    background-color: blue;
+    color: white;
+    font-size: 32px;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-card-title{
+    font-weight: bold;
+    font-size: 20px;
+    color: #6d6d6d;
+}
+
+.metric-value{
+    font-size: 38px;
+    color: rgb(7, 192, 192);
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+mat-card-title{
+    margin-top: 15px;
+}
+
+.metric-subtext{
+    font-size: 16px;
+    color: #6d6d6d;
+    margin-top: 10px;
+}
+
+.previous-month{
+    background-color: antiquewhite;
+    margin-top: 10px;
+}

@@ -33,6 +33,12 @@ export class AdminService {
     });
   }
 
+  updateProduct(productId:any,productDTO:any): Observable<any>{
+    return this.http.put(Basic_URL + `api/admin/product/${productId}`, productDTO,{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
   getAllProducts(): Observable<any>{
     return this.http.get(Basic_URL+ "api/admin/products",{
       headers:this.createAuthorizationHeader()
@@ -50,6 +56,13 @@ export class AdminService {
       headers:this.createAuthorizationHeader()
     });
   }
+
+  getProductById(productId:any): Observable<any>{
+    return this.http.get(Basic_URL+ `api/admin/product/${productId}`,{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
 
 
    /////////////////////////////////////////
@@ -73,6 +86,28 @@ export class AdminService {
       headers:this.createAuthorizationHeader()
     });
   }
+
+  changeOrderStatus(orderId:number, status:string): Observable<any>{
+    return this.http.get(Basic_URL + `api/admin/order/${orderId}/${status}`,{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
+
+  /////////////////////////////////////////
+  postFAQ(productId:number, faqDto:any): Observable<any>{
+    return this.http.post(Basic_URL + `api/admin/faq/${productId}`,faqDto,{
+      headers:this.createAuthorizationHeader()
+    });
+  }
+
+ /////////////////////////////////////////
+
+ getAnalytics(): Observable<any>{
+  return this.http.get(Basic_URL + `api/admin/order/analytics`,{
+    headers:this.createAuthorizationHeader()
+  });
+}
 
 
   /////////////////////////////////////////

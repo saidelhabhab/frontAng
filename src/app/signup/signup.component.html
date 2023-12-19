@@ -23,7 +23,7 @@
                     <input matInput type="{{ hidePassword ? 'password' : 'text'}}" placeholder="Password" formControlName="password" required>
                     <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
                         <mat-icon>
-                            {{ hidePassword ? 'visibility-off' : 'visibility'}}
+                            {{ hidePassword ? 'visibility_off' : 'visibility'}}
                         </mat-icon>
                     </button>
                     <mat-error *ngIf="signUpForm.get('password').invalid && signUpForm.get('password').touched">
@@ -36,7 +36,7 @@
                     <input matInput type="{{ hidePassword ? 'password' : 'text'}}" placeholder="Confirm-Password" formControlName="confirmPassword" required>
                     <button mat-icon-button matSuffix (click)="togglePasswordVisibility()">
                         <mat-icon>
-                            {{ hidePassword ? 'visibility-off' : 'visibility'}}
+                            {{ hidePassword ? 'visibility_off' : 'visibility'}}
                         </mat-icon>
                     </button>
                     <mat-error *ngIf="signUpForm.get('confirmPassword').invalid && signUpForm.get('confirmPassword').touched">

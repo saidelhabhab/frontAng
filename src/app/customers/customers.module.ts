@@ -11,6 +11,11 @@ import { CostumersRoutingModule } from './customers-routing.module';
 import { CartComponent } from './components/cart/cart.component';
 import { PlaceOrderComponent } from './components/place-order/place-order.component';
 import { CustomersComponent } from './customers.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { ViewOrderProductsComponent } from './components/view-order-products/view-order-products.component';
+import { ReviewOrderedProductComponent } from './components/review-ordered-product/review-ordered-product.component';
+import { ViewProductDetailComponent } from './components/view-product-detail/view-product-detail.component';
+import { ViewWishlistComponent } from './components/view-wishlist/view-wishlist.component';
 
 
 @NgModule({
@@ -18,7 +23,12 @@ import { CustomersComponent } from './customers.component';
     CustomersComponent,
     DashboardComponent,
     CartComponent,
-    PlaceOrderComponent
+    PlaceOrderComponent,
+    MyOrdersComponent,
+    ViewOrderProductsComponent,
+    ReviewOrderedProductComponent,
+    ViewProductDetailComponent,
+    ViewWishlistComponent
   ],
   imports: [
     CommonModule,

@@ -16,7 +16,7 @@ export class CustomerService {
  /////////////////////////////////////////
 
   getAllProducts(): Observable<any>{
-    return this.http.get(Basic_URL+ "api/costumer/products",{
+    return this.http.get(Basic_URL+ "api/customer/products",{
       headers:this.createAuthorizationHeader()
     });
   }
@@ -104,6 +104,59 @@ export class CustomerService {
     });
   }
 
+  
+  getOrderByCustomerId(): Observable<any>{
+    
+    const customerId  = UserStorageService.getUserId();
+
+   return this.http.get(Basic_URL+ `api/customer/MyOrders/${customerId}`, {
+     headers:this.createAuthorizationHeader()
+   });
+ }
+
+
+ getOrderProduct(orderId:number): Observable<any>{
+
+ return this.http.get(Basic_URL+ `api/customer/order-products/${orderId}`, {
+   headers:this.createAuthorizationHeader()
+ });
+}
+
+/////////////////////////////////////////
+
+giveReview(reviewDto:any): Observable<any>{
+
+  return this.http.post(Basic_URL+ `api/customer/review`,reviewDto , {
+    headers:this.createAuthorizationHeader()
+  });
+ }
+
+ getProductDetailById(productId:number): Observable<any>{
+
+  return this.http.get(Basic_URL+ `api/customer/product/${productId}`, {
+    headers:this.createAuthorizationHeader()
+  });
+ }
+
+  /////////////////////////////////////////
+
+  addProductToWishlist(wishlistDto:any): Observable<any>{
+
+    return this.http.post(Basic_URL+ `api/customer/wishlist`,wishlistDto , {
+      headers:this.createAuthorizationHeader()
+    });
+   }
+
+   getProductToWishlist(): Observable<any>{
+    
+    const customerId = UserStorageService.getUserId();
+
+    return this.http.get(Basic_URL+ `api/customer/wishlist/${customerId}` , {
+      headers:this.createAuthorizationHeader()
+    });
+   }
+
+ 
 
   /////////////////////////////////////////
 

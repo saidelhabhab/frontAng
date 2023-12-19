@@ -1,5 +1,5 @@
 <div class="container">
-    <h2> Add Category</h2>
+    <h2> Add Product</h2>
   <form [formGroup]="productForm" (ngSubmit)="addProduct()">
         <div class="file-upload-container">
             <label for="imageUpload">
@@ -9,13 +9,14 @@
             </label>
         </div>
         <div *ngIf="selectedFile" class="image-preview">
-                <div>
-                    <img [src]="imagePreview" alt="Selected img" class="preview-image"/>
-                </div>
-        </div>
+            <div class="circle-image">
+                <img [src]="imagePreview" alt="Selected img" class="preview-image"/>
+            </div>
+    </div>
+
         <mat-form-field appearance="outline" class="form-field">
             <mat-label>Select a Category</mat-label>
-            <mat-select formArrayName="categoryId" name="categoryId">
+            <mat-select formControlName="categoryId" name="categoryId">
                 
                 <mat-option *ngFor="let category of listOfCategories" [value]="category.id"  > 
                     {{category.name}}
@@ -45,7 +46,7 @@
             <mat-error *ngIf="productForm.get('description')?.hasError('required')">This input is required!</mat-error>
         </mat-form-field>
 
-        <button type="submit" mat-raised-button color="primary">Add Category</button>
+        <button type="submit" mat-raised-button color="primary">Add Product</button>
 
     </form> 
 </div>

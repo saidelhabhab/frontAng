@@ -43,7 +43,7 @@ export class PostProductComponent implements OnInit {
   ngOnInit(): void {
     this.productForm = this.fb.group({
 
-      categoryId:['1',Validators.required],
+      categoryId:[null,Validators.required],
       name: [null,Validators.required],
       price:[null,Validators.required],
       description:[null]

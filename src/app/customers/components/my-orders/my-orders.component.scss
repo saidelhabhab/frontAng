@@ -1,0 +1,35 @@
+.mat-elevation-z8{
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba($color: #000000, $alpha: 1.0);
+}
+
+.mat-header-cell{
+    font-weight: bolder;
+    color: #3511d8;
+    background-color: aliceblue;
+    padding: 12px 16px;
+
+}
+
+.mat-cell{
+    padding: 12px 16px;
+    border-bottom: 1px solid aliceblue;
+}
+
+.mat-row:nth-child(even){
+    background-color: aliceblue;
+}
+
+.spinner{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 300px;
+}
+
+.mat-progress-spinner circle{
+    stroke: #3511d8;
+}

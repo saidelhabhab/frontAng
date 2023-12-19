@@ -4,6 +4,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AuthService } from '../services/auth-service';
 import { Router } from '@angular/router';
 import { UserStorageService } from '../storage/user-storage-service';
+import { RecaptchaService } from '../services/recaptcha.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,8 @@ export class LoginComponent implements OnInit{
   constructor(private fb : FormBuilder,
     private snackBar:MatSnackBar,
     private authService:AuthService,
-    private router:Router){
+    private router:Router,
+    private recaptchaService: RecaptchaService){
 
   }
 
@@ -86,4 +88,17 @@ openSnackBar(message: string, action: string) {
     });
 }
 
+
+//recaptchaService
+
+  executeRecaptcha() {
+    this.recaptchaService.executeRecaptcha('action_name')
+      .then((token: string) => {
+        // Use the token as needed, e.g., send it to your backend for validation
+        console.log('reCAPTCHA token:', token);
+      })
+      .catch((error: any) => {
+        console.error('reCAPTCHA error:', error);
+      });
+  }
 }
